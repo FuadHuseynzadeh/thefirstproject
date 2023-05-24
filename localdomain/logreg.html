@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Register</title>
+    <link rel="stylesheet" href="logreg.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="form-box">
+        <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn" onclick="login()">
+            <b>Log in</b>
+          </button>
+          <button type="button" class="toggle-btn" onclick="register()">
+            <b>Register</b>
+          </button>
+        </div>
+        <div class="social-icons">
+          <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" />
+          <img src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png" />
+          <img src="https://cdn-icons-png.flaticon.com/128/3670/3670151.png" />
+        </div>
+        <form id="login" class="input-group">
+          <input
+            type="text"
+            class="input-field"
+            placeholder="User Id"
+            required
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Enter Password"
+            required
+          />
+          <input type="checkbox" class="chech-box" /><span
+            >Remember Password</span
+          >
+          <button type="submit" class="submit-btn"><b>Log in</b></button>
+        </form>
+        <form id="register" class="input-group">
+          <input
+            type="text"
+            class="input-field"
+            placeholder="User Id"
+            required
+          />
+          <input
+            type="email"
+            class="input-field"
+            placeholder="Email Id"
+            required
+          />
+          <input
+            type="text"
+            class="input-field"
+            placeholder="Enter Password"
+            required
+          />
+          <input type="checkbox" class="chech-box" /><span
+            >I agree to the terms & conditions</span
+          >
+          <button type="submit" class="submit-btn"><b>Register</b></button>
+        </form>
+      </div>
+    </div>
+    <script>
+      var x = document.getElementById("login");
+      var y = document.getElementById("register");
+      var z = document.getElementById("btn");
+      function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+      }
+      function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+      }
+      
+      $("#submit").on("click", function (e) {
+        e.preventDefault();
+        $.ajax({
+          url: "http://localdomain.test/ajax.php",
+          type: "get",
+          data: {
+            'action': 'ping',
+            'host': $('input[name=host]').val(),
+            'second': $('input[name=second]').val(),
+          },
+          success: function (response) {
+            $('div.result p').html(response.info);
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

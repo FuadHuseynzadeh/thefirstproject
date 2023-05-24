@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style class="result">
+        div{
+  background-color: rgb(6, 6, 45);
+  width: 300px;
+  border: 15px solid rgb(6, 6, 45);
+  padding: 50px;
+  margin: 20px;
+  margin-left: 600px;
+}
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="ping.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="input">
+        <form>
+          Enter IP: <input type="text" name="host" />
+          <br><br>
+          <span>Choose the second:</span>
+          <input value="3" name="second" class="inputsec" min="1" max="5" type="number" />
+
+          <br /><br />
+          <button class="button" id="submit">START PING</button>
+        </form>
+      </div>
+
+      <div style="color: #fff;" class="result">
+        Suggestions:<p></p>
+      </div>
+    </div>
+    <script>
+      $("#submit").on("click", function (e) {
+        e.preventDefault();
+        $.ajax({
+          url: "http://localdomain.test/ajax.php",
+          type: "get",
+          data: {
+            'action': 'ping',
+            'host': $('input[name=host]').val(),
+            'second': $('input[name=second]').val(),
+          },
+          success: function (response) {
+            $('div.result p').html(response.info);
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

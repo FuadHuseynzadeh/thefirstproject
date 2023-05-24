@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZMEF Service</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="firewall.css">
+</head>
+<body>
+ 
+    <div class="header">
+      <form class="type">
+      <div class="input2">
+        <span>DisplayName:</span>
+        <input name="display_name" type="text" required="required" />
+        </div>
+
+       <div class="input3">
+        <span>RemoteAddress:</span>
+        <input name="remote_address" type="text" required="required" />
+        </div>
+        <div class="input4">
+          <span>LocalPort:</span>
+          <input name="port" type="text" required="required" /> 
+          </div>
+          <div class="selects">
+            <label for="type">Direction:</label>
+            <select name="direction" id="type">
+              <option value="in">Inbound</option>
+              <option value="out">Outbound</option>
+            </select>
+         
+            <label for="type">Protocol:</label>
+            <select name="protocol" id="type2">
+              <option value="TCP">TCP</option>
+              <option value="UDP">UDP</option>
+            </select>
+        
+           
+            
+                    <label for="type">Choose your action:</label>
+                    <select name="type" id="type">
+                      <option value="allow">Allow</option>
+                      <option value="deny">Deny</option>
+                    </select>
+          </div>
+            
+
+            <button id="submit" class="button">START</button>
+          </form>
+          <div style="color: #fff;" class="result">
+            Suggestions:<p></p>
+          </div>
+    </div>
+    <script>
+      $("#submit").on("click", function (e) {
+        e.preventDefault();
+        $.ajax({
+          url: "http://localdomain.test/ajax.php",
+          type: "get",
+          data: {
+            'action': 'firewall',
+            'display_name': $('input[name=display_name]').val(),
+            'remote_address': $('input[name=remote_address]').val(),
+            'direction': $('select[name=direction]').val(),
+            'protocol': $('select[name=protocol]').val(),
+            'port': $('input[name=port]').val(),
+            'type': $('select[name=type]').val(),
+          },
+          success: function (response) {
+            $('div.result p').html(response.info);
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+          },
+        });
+      });
+    </script>
+</body>
+</html> 

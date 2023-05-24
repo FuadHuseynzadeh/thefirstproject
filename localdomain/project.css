@@ -1,0 +1,43 @@
+.header{
+    text-align: center;
+    justify-content: center;
+   
+}
+.save{
+    background-color: blanchedalmond;
+    color: black;
+    width: 100px;
+    height: 50px;
+    border: 1px solid blanchedalmond;
+    font-size: large;
+}
+.save:hover{
+   background-color: rgb(175, 151, 117);
+   transition: 0.4s;
+}
+.save:active{
+   background-color: rgb(221, 210, 210);
+}
+
+.cancel{
+    background-color: blanchedalmond;
+    color: black;
+    width: 100px;
+    height: 50px;
+    border: 1px solid blanchedalmond;
+    font-size: large;
+    margin-left: 40px;
+}
+.cancel:hover{
+    background-color: rgb(175, 151, 117);
+    transition: 0.4s;
+ }
+ .cancel:active{
+    background-color: rgb(221, 210, 210);
+ }
+ .text, .text2, .text3{
+   color: black;
+ }
+ .inputBox ,.inputBox2 ,.inputBox3{
+  color: black;
+ }

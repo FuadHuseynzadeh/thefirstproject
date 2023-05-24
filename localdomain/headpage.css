@@ -1,0 +1,51 @@
+.header{
+    background-image: url(https://cdn.mos.cms.futurecdn.net/xcLR5HMU2kxskdAy3ZVuTf.jpg);
+    background-position: center;
+    background-size: cover;
+    background-position: absolute;
+    min-height: 100vh;
+    width: 100%;
+}
+.inputbox{
+    color: #fff;
+    margin-left: 250px;
+}
+.buttons{
+    margin-left: 250px;
+    
+}
+.welcome{
+    color: #fff;
+    padding-top: 100px;
+    padding-left: 300px;
+    font-size: 100px;
+}
+.ping{
+    background-color: rgb(112, 191, 200);
+    width: 200px;
+    height: 150px;
+    border: 1px solid  rgb(112, 191, 200);
+    color: #fff;
+    font-size: medium;
+
+}
+.ping:hover{
+    background-color: rgb(6, 6, 83);
+    transition: 0.5s;
+    border: 1px solid   rgb(6, 6, 83);
+}
+
+.firewall{
+    background-color: rgb(112, 191, 200);
+    width: 200px;
+    height: 150px;
+    border: 1px solid rgb(112, 191, 200);
+    color: #fff;
+    font-size: medium;
+    margin-left: 600px;
+}
+.firewall:hover{
+    background-color: rgb(6, 6, 83);
+    transition: 0.5s;
+    border: 1px solid   rgb(6, 6, 83);
+}
